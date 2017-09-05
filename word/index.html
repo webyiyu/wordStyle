@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>文字特效</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			h1{
+				text-align: center;
+				margin: 200px 0 0 0;
+			}
+			.demo{
+				width: 40%;
+				margin: 20px auto;
+				border: 1px solid #ccc;
+				padding: 20px;
+				position: relative;
+			}
+			.demo >ul>li{
+				position: relative;
+				list-style: none;
+				height: 25px;
+				overflow: hidden;
+			}
+			/*animation-fill-mode 属性规定动画在播放之前或之后，其动画效果是否可见。fprwards 当动画完成后，保持最后一个属性值（在最后一个关键帧中定义）。*/
+			.item >div{
+				position: absolute;
+				height: 18px;
+				top: 25px;
+				animation: textToTop 0.2s linear;
+				animation-fill-mode: forwards;
+				
+			}
+			.item:nth-child(2)>div{
+				animation-delay: 2s;
+			}
+			.item:nth-child(3)>div{
+				animation-delay: 4s;
+			}
+			.item:nth-child(4)>div{
+				animation-delay: 6s;
+			}
+			.item:nth-child(5)>div{
+				animation-delay: 8s;
+			}
+			.item >div::before{
+				content: attr(data-letters);
+				position: absolute;
+				width: 0;
+				z-index: 2;
+				color: burlywood;
+				overflow: hidden;
+				white-space: nowrap;
+				animation: textToColor 1.2s linear;
+				animation-fill-mode: forwards;
+			}
+			.item:nth-child(2) >div::after,
+			.item:nth-child(2) >div::before{
+				animation-delay: 2.5s;
+				
+			}
+			.item:nth-child(3) >div::after,
+			.item:nth-child(3) >div::before{
+				animation-delay: 4.5s;
+				
+			}
+			.item:nth-child(4) >div::after,
+			.item:nth-child(4) >div::before{
+				animation-delay: 6.5s;
+				
+			}
+			.item:nth-child(5) >div::after,
+			.item:nth-child(5) >div::before{
+				animation-delay: 8.5s;
+				
+			}
+			.item >div::after{
+				content: '';
+				width: 0;
+				position: absolute;
+				bottom: -7px;
+				left: 0;
+				height: 2px;
+				background: orange;
+				animation: textLine 1.2s linear;
+				animation-fill-mode: forwards;
+			}
+			@keyframes  textToTop{
+				0%{
+					top: 25px;
+				}
+				100%{top: 0;}
+			}
+			@keyframes  textToColor{
+				0%{
+					width: 0;
+				}
+				100%{width: 100%;}
+			}
+			@keyframes  textLine{
+				0%{
+					width: 0;
+				}
+				100%{width: 100%;}
+			}
+		</style>
+	</head>
+	<body>
+		<h1>文字特效</h1>
+		<div class="demo">
+			<ul>
+				<li class="item">
+					<div data-letters="eat light for dinner">eat light for dinner</div>
+				</li>
+				<li class="item">
+					<div data-letters="smoke as little as possible">smoke as little as possible</div>
+				</li>
+				<li class="item">
+					<div data-letters="Don't sleep too late and complain about dark circles">Don't sleep too late and complain about dark circles</div>
+				</li>
+				<li class="item">
+					<div data-letters="sing a song of love">sing a song of love</div>
+				</li>
+				<li class="item">
+					<div data-letters="eat more green food">eat more green food</div>
+				</li>
+				
+			</ul>
+		</div>
+	</body>
+</html>
